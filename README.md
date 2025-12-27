@@ -57,7 +57,7 @@ All cleaning and feature engineering was intentionally done in **Excel** to refl
 Engagement Rate = (Likes + Comments + Shares + Saves) / Reach
 Watch Retention Ratio = Average Play Time / Reel Duration
 
-## 📐 DAX Measures (Power BI)
+## DAX Measures (Power BI)
 
 All KPIs in the dashboard were created using **DAX measures** (not calculated columns) to ensure dynamic behavior with filters and slicers.
 
@@ -91,12 +91,44 @@ Like Impact Score =
 DIVIDE (
     SUM ( instagram_reels[Likes] ),
     AVERAGE ( instagram_reels[Average_Play_Time] )
-)
-### 📸 Dashboard Snapshot
+) 
+### Python Code
 
-![Dashboard Page 1](https://github.com/Akshayjadhav04/Toll-Gate-Dashboard/blob/dbfe21ee78a9721670bd9d01c3192a9fae2b34a4/ttol-1.png)
+```python
+import pandas as pd
+df = pd.read_excel("../data/Instagram_reels.xlsx")
+```
 
-![Dashboard Page 1](https://github.com/Akshayjadhav04/Toll-Gate-Dashboard/blob/a8a92f137a748385ae241acf25cda5ee2dfb12a4/ttol-2.png)
+## Basic Metrics
 
-![Dashboard Page 1](https://github.com/Akshayjadhav04/Toll-Gate-Dashboard/blob/dbfe21ee78a9721670bd9d01c3192a9fae2b34a4/ttol-3.png)
+```python
+summary = df.groupby("Content Type").agg({
+    "Reach": "mean",
+    "Engagement Rate": "mean",
+    "Retention Ratio": "mean",
+    "Follows": "mean"
+}).reset_index()
 
+summary
+```
+
+## Watch Retention vs Follows
+
+```python
+df[["Retention Ratio", "Follows"]].corr()
+```
+
+## Top 25% Reels
+
+```python
+threshold = df["Reach"].quantile(0.75)
+top_reels = df[df["Reach"] >= threshold]
+
+top_reels.drop(columns=["Date"]).describe()
+```
+
+## Reach According to Content Type and Posting Time
+
+```python
+df.groupby(["Content Type", "Post Hour"])["Reach"].mean().reset_index()
+```
