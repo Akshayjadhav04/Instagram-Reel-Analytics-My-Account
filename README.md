@@ -38,6 +38,10 @@ Due to limitations in Meta Business Suite exports:
 
 were **manually recorded per reel** from Instagram Insights to ensure accuracy.
 
+## Dashboard
+![instagram_analysis_page-0001](https://github.com/user-attachments/assets/cfbaa7d5-771f-44f0-86e8-bc60b0760e5c)
+![instagram_analysis_page-0002](https://github.com/user-attachments/assets/327b0609-b43b-432f-9c10-d27dffa89196)
+
 ---
 
 ## 🧹 Data Cleaning & Feature Engineering (Excel)
