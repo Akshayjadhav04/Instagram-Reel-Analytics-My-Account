@@ -3,6 +3,7 @@
 **Business vs Motivation Content | Real Creator Data**
 
 ---
+[instagram_analysis.pdf](https://github.com/user-attachments/files/24985748/instagram_analysis.pdf)
 
 ## 📌 Project Overview
 This project is an **end-to-end data analytics study** performed on **my own Instagram page** (80K+ followers), focused on understanding how **content type, posting time, engagement, and watch behavior** influence **reach and follower growth**.
